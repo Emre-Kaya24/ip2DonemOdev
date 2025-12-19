@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ip2DonemOdev.DAL.Entities.Slider>
+<style>
+    .slider-img {
+        height: 700px;
+        object-fit: cover; 
+        border-radius: 30px; 
+    }
+
+</style>
+
+
+<div id="homeSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <!-- Slider göstergeleri -->
+    <div class="carousel-indicators">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")" aria-current="@(i == 0 ? "true" : "false")" aria-label="Slide @(i + 1)"></button>
+        }
+    </div>
+
+    <!-- Slider içerikleri -->
+    <div class="carousel-inner">
+        @foreach (var item in Model)
+        {
+            <div class="carousel-item @(item == Model.FirstOrDefault() ? "active" : "")">
+                <img src="@item.Image" class="d-block w-100  slider-img" alt="Slider Image">
+                @* Eğer başlık ve açıklama kullanmak istersen *@
+                @if (!string.IsNullOrEmpty(item.Title) || !string.IsNullOrEmpty(item.Description))
+                {
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>@item.Title</h5>
+                        <p>@item.Description</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+
+    <!-- Önceki / Sonraki Butonları -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#homeSlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#homeSlider" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

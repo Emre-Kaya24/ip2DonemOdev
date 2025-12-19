@@ -1,0 +1,85 @@
+﻿
+<style>
+    .title-main {
+        color: #2B8A3E; 
+    }
+
+    .title-card {
+        color: #0D6EFD;
+        font-weight: 600;
+    }
+</style>
+
+
+<div class="container my-5">
+    <div class="row align-items-center">
+
+
+        <div class="col-md-6 mb-4">
+            <img src="~/images/senegal-flag.png"
+                 class="img-fluid rounded shadow" alt="Senegal Bayrağı">
+        </div>
+
+      
+        <div class="col-md-6">
+            <h2 class="mb-3 title-main fw-bold">
+                @ViewBag.Name Hakkında
+            </h2>
+            <p style="font-size: 1.1rem;">
+                @* Senegal, Batı Afrika’da Atlas Okyanusu kıyısında yer alan bir ülkedir.
+                Başkenti Dakar’dır ve bölgenin kültürel ile ekonomik merkezlerinden biridir.
+                Tarihi yapıları, doğal güzellikleri ve misafirperver insanlarıyla bilinir. *@
+                @ViewBag.Description
+                
+            </p>
+
+            <ul class="list-group shadow">
+                <li class="list-group-item"><strong>🏙 Başkent:</strong> @ViewBag.Capital</li>
+                <li class="list-group-item"><strong>🌍 Konum:</strong> @ViewBag.Location</li>
+                <li class="list-group-item"><strong>👥 Nüfus:</strong> @ViewBag.Population</li>
+                <li class="list-group-item"><strong>💬 Resmi Dil:</strong> @ViewBag.OfficialLanguage</li>
+                <li class="list-group-item"><strong>🕌 Yerel Diller:</strong> @ViewBag.LocalLanguages</li>
+                <li class="list-group-item"><strong>🌡 İklim:</strong> @ViewBag.Climate</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div class="row mt-5">
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5 class="card-title title-card text-center">Gorée Adası</h5>
+                    <p class="card-text">
+                        Dakar kıyıları açıklarında bulunan bu ada, UNESCO Dünya Mirası listesindedir ve köle ticaretinin önemli merkezlerinden biri olarak bilinir. Tarih boyunca milyonlarca Afrikalının zorla Amerika’ya gönderilmeden önce tutulduğu bir aktarma noktası olmuştur. 
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5 class="card-title title-card text-center">Senegal Mutfağı</h5>
+                    <p class="card-text">
+                        Senegal’in ünlü yemekleri arasında <strong>Thieboudienne</strong>, Yassa ve Mafé bulunur. Bu yemekler, baharatlı ve aromatik tatlarıyla tanınır ve Senegal mutfağının zenginliğini yansıtır. Balık, et ve sebzelerin öne çıktığı bu lezzetler, hem yerel halk hem de turistler tarafından büyük ilgi görür.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5 class="card-title title-card text-center">Kültür ve Gelenekler</h5>
+                    <p class="card-text">
+                        Senegal’de müzik ve dans kültürü oldukça güçlüdür. Özellikle Mbalax müziği ve canlı davul ritimleri, hem ülke içinde hem de dünya çapında büyük bir üne sahiptir. Geleneksel danslar ve ritmik müzikler, Senegal’in kültürel zenginliğini ve toplumsal yaşamını yansıtır.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

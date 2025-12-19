@@ -1,0 +1,21 @@
+﻿@model ip2DonemOdev.DAL.Entities.Slider
+
+<form asp-action="CreateSlider" method="post" enctype="multipart/form-data">
+
+
+    <div class="form-group mt-3">
+        <label>Başlık</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group mt-3">
+        <label>Açıklama</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Slider Resmi</label>
+        <input type="file" name="ImageFile" class="form-control" />
+    </div>
+
+
+    <button type="submit" class="btn btn-success mt-3">Yeni Slider Ekle</button>
+</form>

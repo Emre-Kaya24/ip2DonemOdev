@@ -1,0 +1,79 @@
+﻿@model List<ip2DonemOdev.DAL.Entities.Place>
+@{
+    ViewData["Title"] = "Senegal Tarihi ve Turistik Yerler";
+}
+
+<style>
+    .place-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+        .place-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+    .place-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 8px;
+    }
+
+    .place-desc {
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 0;
+    }
+
+    .btn-custom {
+        border-radius: 20px;
+        padding: 6px 15px;
+    }
+
+    .container-custom {
+        max-width: 800px;
+        margin: auto;
+        margin-top: 30px;
+    }
+</style>
+
+<div class="container container-custom">
+    <h2 class="text-center mb-4">Senegal Tarihi ve Turistik Yerler</h2>
+
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="card mb-3 place-card">
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div style="flex-grow: 1;">
+                            <div class="place-title">@item.Title</div>
+                            <p class="place-desc">@item.Description</p>
+                        </div>
+
+                        <div class="ms-3 text-end">
+                            <a href="/Admin/UpdatePlace/@item.Id" class="btn btn-outline-success btn-custom mb-2 d-block">Güncelle</a>
+                            <a href="/Admin/DeletePlace/@item.Id" onclick="return confirm('Bu Veriyi Silmek İstediğinize emin misiniz?');" class="btn btn-outline-danger btn-custom d-block">Sil</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-warning text-center">
+            Veritabanında herhangi bir kayıt bulunamadı.
+        </div>
+    }
+
+    <div class="text-center mt-4">
+        <a href="/Admin/CreatePlace" class="btn btn-primary btn-custom" style="font-size: 16px;">+ Yeni Bölge Ekle</a>
+    </div>
+</div>

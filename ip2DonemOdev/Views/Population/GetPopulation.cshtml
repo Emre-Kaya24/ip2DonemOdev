@@ -1,0 +1,57 @@
+﻿@model List<ip2DonemOdev.DAL.Entities.Population>
+@{
+    ViewBag.Title = "Nüfus Sayfası";
+}
+
+<div class="d-flex justify-content-center mt-5">
+    <div class="w-100" style="max-width:450px;">
+
+        <div class="card shadow-lg border-0"
+             style="border-radius:18px; overflow:hidden; backdrop-filter:blur(8px); background:white;">
+
+            <div class="text-center text-white p-3"
+                 style="background: linear-gradient(135deg, #0066ff, #0033cc);">
+                <h4 class="mb-0" style="font-weight:600;">📊 Ülkenin Nüfus Dağılımı</h4>
+            </div>
+
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                    @foreach (var item in Model)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center"
+                            style="padding:14px 20px; font-size:16px; border-color:#eee;">
+
+                            <!-- YIL -->
+                            <span style="font-weight:500; width:40%;">@item.Year</span>
+
+                            <!-- DİKEY ÇİZGİ -->
+                            <div style="width:2px; height:24px; background:#d1d1d1; margin:0 10px;"></div>
+
+                            <!-- NÜFUS -->
+                            <span style="font-weight:600; color:#1a73e8; width:40%; text-align:right;">
+                                @item.Value.ToString("N0")
+                            </span>
+
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .card:hover {
+        transform: translateY(-5px);
+        transition: 0.3s ease;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    body {
+        background: linear-gradient(135deg, #e8f1ff, #f8fbff);
+        min-height: 100vh;
+        background-attachment: fixed;
+    }
+</style>

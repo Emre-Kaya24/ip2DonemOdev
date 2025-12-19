@@ -1,0 +1,26 @@
+﻿@model List<ip2DonemOdev.DAL.Entities.Population>
+
+<div class="d-flex justify-content-center mt-5">
+    <div class="w-100" style="max-width:400px;">
+        <div class="card shadow-sm">
+            <div class="card-header text-center bg-primary text-white">
+                <h4 class="mb-0">Ülkenin Nüfus Dağılımı</h4>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    @foreach (var item in Model)
+                    {
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>@item.Year</span>
+                            <span>@item.Value.ToString("N0")</span>
+                            <a href="/Admin/UpdatePopulation/@item.Id" class="btn btn-outline-success">Güncelle</a>
+                            <a href="/Admin/DeletePopulation/@item.Id" onclick="return confirm('@item.Year yılının verisini silmek istediğinize emin misiniz?');" class="btn btn-outline-danger">Sil</a>
+                        </li>
+                    }
+                </ul>
+
+            </div>
+            <a href="/Admin/GetCreatePopulation" class="btn btn-outline-primary">Yeni Popülasyon Ekle</a>
+        </div>
+    </div>
+</div>

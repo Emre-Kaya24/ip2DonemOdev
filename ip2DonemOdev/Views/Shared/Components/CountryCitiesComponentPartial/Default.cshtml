@@ -1,0 +1,81 @@
+﻿@model List<ip2DonemOdev.DAL.Entities.City>
+
+<style>
+
+    /* Sayfa arka planı (sıcak pastel degrade) */
+    body {
+        background: linear-gradient(135deg, #FFF8D6, #FFEFA1, #FFD95A);
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-top: 40px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+        .custom-table thead th {
+            background: linear-gradient(90deg, #ff9f43, #ff6f61);
+            color: white;
+            padding: 14px;
+            font-size: 17px;
+            border: none;
+            letter-spacing: 0.5px;
+        }
+
+        /* Satırlar – modern pastel renkler */
+        .custom-table tbody tr:nth-child(odd) {
+            background-color: #FFF5E1; /* açık pastel */
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #FFECC7; /* uyumlu koyu pastel */
+        }
+
+        /* Hover – modern ve sıcak ton */
+        .custom-table tbody tr:hover {
+            background-color: #FFD79D !important;
+            transform: scale(1.01);
+            transition: 0.3s ease;
+        }
+
+        .custom-table td {
+            padding: 12px;
+            font-size: 15px;
+            border: none;
+            text-align: center;
+            font-weight: 500;
+        }
+
+</style>
+@{
+    int count = 0;
+}
+
+<table class="custom-table table align-middle text-center mt-5">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Senegal Şehirleri</th>
+            <th>Açıklama</th>
+        </tr>
+    </thead>
+    <tbody>
+      
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+            </tr>
+            
+        }
+    </tbody>
+</table>

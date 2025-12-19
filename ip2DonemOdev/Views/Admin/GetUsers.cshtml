@@ -1,0 +1,43 @@
+﻿@model List<ip2DonemOdev.DAL.Entities.User>
+
+@{
+    ViewData["Title"] = "Kullanıcı Listesi";
+    int count = 0;
+}
+
+<h2 class="text-center mt-4 mb-4">Kullanıcı Listesi</h2>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr class="text-center">
+            <th>Sıra Numarası</th>
+            <th>Email</th>
+            <th>Şifre </th>
+            <th>Admin mi?</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var user in Model)
+            {
+                count++;
+
+                // Admin olanları kırmızı, kullanıcıları mavi yap
+                string rowColor = user.IsAdmin ? "table-danger" : "table-info";
+
+                <tr class="@rowColor">
+                    <td>@count</td>
+                    <td>@user.Email</td>
+                    <td>@user.PasswordHash</td>
+                    <td>@(user.IsAdmin ? "Admin" : "Kullanıcı")</td>
+                    <td><a href="/Admin/UpdateUsers/@user.Id" class="btn btn-outline-success">Güncelle</a></td>
+                    <td><a href="/Admin/DeleteUsers/@user.Id" onclick="return confirm('Bu Kullanıcıyı Silmek İstiyor musunuz?');" class="btn btn-outline-danger">Sil</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Oturum Aç";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 90vh; background: #f5f6fa;">
+    <div class="card shadow-lg p-4" style="width: 420px; border-radius: 15px;">
+
+        <h3 class="text-center mb-4" style="font-weight:600;">Oturum Aç</h3>
+
+        @if (ViewData.ModelState.ContainsKey("") && ViewData.ModelState[""].Errors.Count > 0)
+        {
+            <div class="alert text-center"
+                 style="background:#ffe6e6; color:#b71c1c; border:1px solid #ffcccc;
+                            padding:12px; border-radius:8px; font-weight:500;">
+                @ViewData.ModelState[""].Errors[0].ErrorMessage
+            </div>
+        }
+
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Email, new {@class = "form-control",type = "email",placeholder = "E-posta adresinizi giriniz"})
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Password, "Şifre", new { @class = "form-label" })
+            @Html.PasswordFor(m => m.Password, new {@class = "form-control",placeholder = "Şifrenizi giriniz"})
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mt-2" style="border-radius: 8px;">
+            Giriş Yap
+        </button>
+                }
+
+        <div class="text-center mt-4">
+            <small>
+                Hesabın yok mu?
+                <a asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+            </small>
+        </div>
+
+    </div>
+</div>
+

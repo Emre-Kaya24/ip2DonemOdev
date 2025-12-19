@@ -1,0 +1,29 @@
+﻿@model ip2DonemOdev.DAL.Entities.Population
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Nüfus Bilgisi Güncelleme </h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Nüfus Bilgisi Güncelleme Sayfası</div>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" asp-action="UpdatePopulation">
+                            <label>Nüfus Yılını Güncelle</label>
+                            <input type="text" asp-for="Year" class="form-control" />
+                            <br />
+                            <label>Nüfus Sayısını Düzenle</label>
+                            <input type="text" asp-for="Value" class="form-control" />
+                            <br />
+                            <button class="btn btn-primary">Nüfus Bilgisini Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

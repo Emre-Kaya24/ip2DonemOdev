@@ -1,0 +1,35 @@
+﻿@model ip2DonemOdev.DAL.Entities.Population
+@{
+    ViewData["Title"] = "Nüfus Bilgisi Sayfası";
+   
+}
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Nüfus Bilgisi</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Yeni Nüfus Bilgisi Ekleme Sayfası</div>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" asp-action="CreatePopulation">
+                            <label>Nüfus Yılını Giriniz</label>
+                            <input type="text" asp-for="Year" class="form-control" />
+                            <br />
+                            <label>Nüfüs Sayısını Giriniz</label>
+                            <input type="text" asp-for="Value" class="form-control" />
+                            <br />
+                            <button class="btn btn-primary">Yeni Nüfus Bilgisini Ekle</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

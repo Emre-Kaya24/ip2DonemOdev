@@ -1,0 +1,29 @@
+﻿@model ip2DonemOdev.DAL.Entities.Place
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Konum Bilgisi Güncelleme </h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Konum Bilgisi Güncelleme Sayfası</div>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" asp-action="UpdatePlace">
+                            <label>Konum Bilgisini Güncelle</label>
+                            <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+                            <label>Şehir Açıklamasını Güncelle</label>
+                            <input type="text" asp-for="Description" class="form-control" />
+                            <br />
+                            <button class="btn btn-primary">Yapılan Değişiklikleri Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

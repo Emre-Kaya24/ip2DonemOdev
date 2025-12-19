@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ip2DonemOdev.DAL.Entities.Slider>
+@{
+    ViewBag.Title = "Senegal Resimleri";
+}
+<style>
+    .slider-img {
+        height: 700px;
+        object-fit: cover;
+        border-radius: 30px;
+    }
+
+    /* Slider üzerindeki butonlar */
+    .slider-actions {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+    }
+
+        .slider-actions a {
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+    .add-btn-container {
+        text-align: center;
+        margin-top: 25px;
+    }
+</style>
+
+
+<div id="homeSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+
+    <!-- Slider göstergeleri -->
+    <div class="carousel-indicators">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")"></button>
+        }
+    </div>
+
+    <!-- Slider içerikleri -->
+    <div class="carousel-inner">
+        @foreach (var item in Model)
+        {
+            <div class="carousel-item @(item == Model.FirstOrDefault() ? "active" : "") position-relative">
+
+                <!-- Güncelle / Sil butonları -->
+                <div class="slider-actions">
+                    <a href="/Admin/UpdateSlider/@item.Id" class="btn btn-warning btn-sm">Güncelle</a>
+                    <a href="/Admin/DeleteSlider/@item.Id" onclick="return confirm('Bu Resimi silmek istediğinize emin misiniz?');" class="btn btn-danger btn-sm">Sil</a>
+                </div>
+
+                <img src="@item.Image" class="d-block w-100 slider-img" alt="Slider Image">
+
+                @if (!string.IsNullOrEmpty(item.Title) || !string.IsNullOrEmpty(item.Description))
+                {
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>@item.Title</h5>
+                        <p>@item.Description</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+
+    <!-- Önceki / Sonraki Butonları -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#homeSlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#homeSlider" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<!-- Yeni Slider Ekle -->
+<div class="add-btn-container">
+    <a href="/Admin/CreateSlider" class="btn btn-primary btn-lg mt-3">+ Yeni Slider Ekle</a>
+</div>

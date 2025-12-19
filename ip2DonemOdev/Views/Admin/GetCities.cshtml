@@ -1,0 +1,52 @@
+﻿@model List<ip2DonemOdev.DAL.Entities.City>
+@{
+    int count = 0;
+}
+<div class="container mt-4">
+
+    <h3 class="mb-4 text-center fw-bold text-primary">Senegal Şehirleri Listesi</h3>
+
+    <table class="table table-bordered table-hover table-striped align-middle text-center shadow-sm">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Senegal Şehirleri</th>
+                <th>Açıklama</th>
+                <th colspan="2">İşlemler</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td class="fw-semibold">@item.Name</td>
+                    <td>@item.Description</td>
+
+                    <td>
+                        <a href="/Admin/UpdateCities/@item.Id" class="btn btn-success btn-sm w-100">
+                            Güncelle
+                        </a>
+                    </td>
+
+                    <td>
+                        <a href="/Admin/DeleteCities/@item.Id" onclick="return confirm('@item.Name şehrini silmek istediğinize emin misiniz?');" class="btn btn-danger btn-sm w-100">
+                            Sil
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+    <div class="text-end">
+        <a href="/Admin/Cities" class="btn btn-primary btn-lg">
+            Yeni Senegal Şehri Ekle
+        </a>
+    </div>
+
+</div>

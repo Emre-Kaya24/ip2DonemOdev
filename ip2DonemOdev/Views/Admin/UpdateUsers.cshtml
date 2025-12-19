@@ -1,0 +1,39 @@
+﻿@model ip2DonemOdev.DAL.Entities.User
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Kullanıcı Bilgisi Güncelleme</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Kullanıcı Düzenleme Sayfası</div>
+                    </div>
+
+                    <div class="card-body">
+                        <form method="post" asp-action="UpdateUsers">
+
+                            <input type="hidden" asp-for="Id" />
+
+
+                            <label>Email</label>
+                            <input type="email" asp-for="Email" class="form-control" />
+                            <br />
+
+                            <label>Yeni Şifre</label>
+                            <input type="password" name="Password" class="form-control" />
+                            <br />
+
+                            <label>Admin Yetkisi</label>
+                            <input type="checkbox" asp-for="IsAdmin" />
+                            <br /><br />
+
+                            <button class="btn btn-primary">Değişiklikleri Kaydet</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
